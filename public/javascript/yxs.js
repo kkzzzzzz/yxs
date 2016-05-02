@@ -21,25 +21,23 @@ var mergeData = function(newData, color){
             break;
     }
 
-    for(var i = 0; i < oData.length; i++){
-        if(i % 4 == bit){
-            // 只处理目标通道
-            if(newData[i + offset] === 0 && (oData[i] % 2 === 1)){
-                // 没有信息的像素，该通道最低位置0，但不要越界
-                if(oData[i] === 255){
-                    oData[i]--;
-                } else {
-                    oData[i]++;
-                }
-            } else if ( newData[i + offset] !== 0 && (oData[i] % 2 === 0)){
-                // // 有信息的像素，该通道最低位置1，可以想想上面的斑点效果是怎么实现的
-                if(oData[i] === 255){
-                    oData[i]--;
-                } else {
-                    oData[i]++;
-                }
-            }
-        }
+    // 只处理目标通道
+    for(var i = bit; i < oData.length;i = i+4){
+          if(newData[i + offset] === 0 && (oData[i] % 2 === 1)){
+              // 没有信息的像素并且最低位为1，把该通道最低位置0，但不要越界，（这边只是一个简单的处理方式，还可以其他加密方式）
+              if(oData[i] === 255){
+                  oData[i]--;
+              } else {
+                  oData[i]++;
+              }
+          } else if ( newData[i + offset] !== 0 && (oData[i] % 2 === 0)){
+              // // 有信息的像素并且最低位为0，该通道最低位置1，
+              if(oData[i] === 255){
+                  oData[i]--;
+              } else {
+                  oData[i]++;
+              }
+          }
     }
     ctx.putImageData(orginalData, 0, 0);
     alert("加密结束,可以右击保存图片");
