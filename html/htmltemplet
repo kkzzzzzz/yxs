@@ -1,0 +1,13 @@
+"<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js\"></script>" +
+        "<img id='kobe_img' data-caman=\"brightness(10) contrast(30)\"" +
+        "  src=\"/static/img/1.jpg\" \n" +
+            // "  width=\"500\"\n" +
+            // "  height=\"500\"\n" +
+        ">" +
+        "<canvas id='kobe_canvas' width=\"554\" height=\"667\"></canvas>" +
+        <input type='button' id='vintagebtn' value='vintagebtn'>Vintage</input>
+        "<canvas id=\"canvas\"></canvas>"+
+        "<button id =\"vintagebtn\">Vintage</button>"+
+        "<button id =\"noisebtn\">Noise</button>"+
+        "<button id =\"tiltshiftbtn\">Tilt Shift</button>" +
+        "<script type=\"text/javascript\" src=\"/static/javascript/test.js\"></script>"
